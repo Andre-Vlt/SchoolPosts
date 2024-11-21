@@ -106,6 +106,10 @@ const Login = () => {
                 localStorage.setItem('isLoggedIn', 'true')
                 localStorage.setItem('userId', data.id_user)
                 localStorage.setItem('username', data.username)
+
+                //Segunda ideia: fazer o fetch na tela inicial, e se professor existir, deixar um botão 'add' para ele criar o post. Se o professor não existir, deixar o botão invisível.
+
+                
                 router.push('/')
             }catch(error){
                 if (error instanceof Error){
