@@ -6,6 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import { IoIosAdd } from "react-icons/io";
 import Books from "../../app/public/images/Books.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const ButtonContainer = styled.div`
     display: flex;
@@ -22,7 +23,7 @@ const SideMenuContainer = styled.div`
     align-items: center;
     background-color: #ff4537;
     height: 88vh;
-    width: 20%;
+    width: 100%;
     border-right: 1px solid #000;`;
     
 
@@ -79,13 +80,16 @@ const SideMenu = ()=>{
             </Button>
             {buttonVisible && 
             <Button>
+                <Link href="/addPost">
                 <ButtonContainer>
                     <ButtonText>
                         Adicionar Post
                     </ButtonText>
                     <IoIosAdd size={25} color="#fff"/>
                 </ButtonContainer>
-            </Button>}
+            </Link>
+            </Button>
+            }
             <BookImage src={Books} alt="Books" width={200} height={200}/>
         </SideMenuContainer>
     )

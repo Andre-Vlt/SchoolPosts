@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Logo from "../../app/public/images/Logo.png";
 import { FaUserCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import Books from "../../app/public/images/Books.png";
 
 
 const Container = styled.div`
