@@ -4,7 +4,7 @@ import Main from "@/components/Main/Main";
 import PostsList from "@/components/PostsList/PostsList";
 import SideMenu from "@/components/SideMenu/SideMenu";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -31,6 +31,8 @@ const SideMenuContainer = styled.div`
 `;
 
 export default function Home() {
+
+  const [keyword, setKeyword] = useState<string>('');
   const router = useRouter();
   useEffect(() => 
   { 
@@ -47,10 +49,12 @@ export default function Home() {
     <Header />
     <Container>
       <SideMenuContainer>
-        <SideMenu />
+        <SideMenu onSearch={(newKeyword) => setKeyword(newKeyword)} />
       </SideMenuContainer>
       <MainContainer>
-        <Main><PostsList /></Main>
+        <Main>
+          <PostsList keyWord={keyword} />
+        </Main>
       </MainContainer>
     </Container>
     </>

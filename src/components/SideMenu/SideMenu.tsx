@@ -53,8 +53,17 @@ const Text = styled.h2`
 
 const BookImage = styled(Image)`
     margin-top: 150px;`;
-const SideMenu = ()=>{
+
+//FIM DAS ESTILIZAÇÕES
+
+
+const SideMenu: React.FC<{onSearch: (keyword: string) => void}> = ({onSearch})=>{
     const [buttonVisible, setButtonVisible] = useState(false);
+    const [keyword, setKeyword] = useState('');
+
+    const handleSearch = () =>{
+        onSearch(keyword);
+    }
     
     useEffect(()=>{
         getTeacherById()
@@ -69,8 +78,12 @@ const SideMenu = ()=>{
     return(
         <SideMenuContainer>
             <Text>Digite o trecho desejado</Text>
-            <Input></Input>
-            <Button>
+            <Input
+            type = "text"
+            value = {keyword}
+            onChange={(e) => setKeyword(e.target.value)}>
+            </Input>
+            <Button onClick={handleSearch}>
                 <ButtonContainer>
                     <ButtonText>
                         Buscar post

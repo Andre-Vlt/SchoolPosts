@@ -1,7 +1,6 @@
-// src/app/posts/[id]/page.tsx
 'use client'
 
-import { useParams } from 'next/navigation'; // Use useParams em vez de useRouter
+import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { getPostById } from '@/apiCalls/getPostById';
 import styled from 'styled-components';
@@ -75,18 +74,17 @@ interface Post {
 }
 
 const PostPage: React.FC = () => {
-  const { id } = useParams(); // Obtém o parâmetro 'id' usando useParams()
-  const [post, setPost] = useState<Post | null>(null); // Tipagem mais específica
+  const { id } = useParams(); 
+  const [post, setPost] = useState<Post | null>(null); 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Só tenta buscar o post se o 'id' estiver disponível
     if (id) {
       const fetchPost = async () => {
         try {
           setLoading(true);
-          const postData = await getPostById(id as string); // Supondo que o id seja string
+          const postData = await getPostById(id as string); 
           setPost(postData);
         } catch (err) {
           setError('Failed to load the post: ' + err);

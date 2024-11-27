@@ -9,6 +9,7 @@ export async function getTeacherById(){
 
 
     if (response.ok){
+        localStorage.setItem('isTeacher', 'true')
         return true
     }
     else{
