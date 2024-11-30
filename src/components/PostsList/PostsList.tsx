@@ -8,6 +8,7 @@ import { searchPostsByKeyWord } from '@/apiCalls/searchPostsByKeyWord';
 import { TbMoodEmptyFilled } from "react-icons/tb";
 import { MdModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { deletePost } from '@/apiCalls/deletePost';
 
 const PostListContainer = styled.ul`
   max-height: 80vh;  
@@ -70,9 +71,7 @@ const EditDeleteContainer = styled.div`
 
 const Linking = styled(Link)`
 width: 80%;`
-    interface PostListProps {
-        keyWord: string;
-    }
+
 
 const EditIcon = styled(MdModeEdit)`
     color: #235789;
@@ -92,11 +91,26 @@ const DeleteIcon = styled(MdDelete)`
         color: #7a0404;
         }`;
 
+interface PostListProps {
+    keyWord: string;
+}
+
 const PostsList: React.FC<PostListProps> = ({ keyWord }) => {
     const [posts, setPosts] = useState<Posts[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const [editVisible, setEditVisible] = useState<boolean>(false);
+
+    const handleDelete = async(id:number) => {
+        if(confirm('Confirma a exclusão do post?')){
+            try{
+                await deletePost(id)
+                setPosts((prevPosts) => prevPosts.filter((post => post.id_post != id)))
+            }catch(err){
+                console.log(err)
+        }
+    }
+}
 
     useEffect(() => {
         if(localStorage.getItem('isTeacher') === 'true'){
@@ -157,7 +171,7 @@ const PostsList: React.FC<PostListProps> = ({ keyWord }) => {
                         </Link>
                         )}
                         {editVisible && 
-                        <DeleteIcon size={28}/>
+                        <DeleteIcon size={28} onClick={() => handleDelete(post.id_post)}/>
                         //Configurar para aparecer um modal de confirmação de exclusão -> onClick={}
                         }
                         

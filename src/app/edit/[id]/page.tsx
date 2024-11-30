@@ -206,15 +206,15 @@ const formik = useFormik({
 
 useEffect(()=>{
     if(post){
-        const subjectId = subjectMap[post.subject_name];
+        const subjectId = Object.keys(subjectMap).find((key) => subjectMap[key] === post.subject_name);
         formik.setValues({
             id_teacher: teacherId,
-            id_subject: subjectId,
+            id_subject: subjectId || '',
             post_text: post.post_text,
             post_title: post.post_title,
         })
     }
-})
+},[post, teacherId])
 if (loading || !post) {
     return (
         <>
