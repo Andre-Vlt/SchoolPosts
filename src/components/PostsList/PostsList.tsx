@@ -101,16 +101,7 @@ const PostsList: React.FC<PostListProps> = ({ keyWord }) => {
     const [error, setError] = useState<string | null>(null);
     const [editVisible, setEditVisible] = useState<boolean>(false);
 
-    const handleDelete = async(id:number) => {
-        if(confirm('Confirma a exclusão do post?')){
-            try{
-                await deletePost(id)
-                setPosts((prevPosts) => prevPosts.filter((post => post.id_post != id)))
-            }catch(err){
-                console.log(err)
-        }
-    }
-}
+
 
     useEffect(() => {
         if(localStorage.getItem('isTeacher') === 'true'){
@@ -135,6 +126,19 @@ const PostsList: React.FC<PostListProps> = ({ keyWord }) => {
 
         fetchPosts();
     }, [keyWord]);
+
+    const handleDelete = async(id:number) => {
+        if(confirm('Confirma a exclusão do post?')){
+            try{
+                const response = await deletePost(id)
+                console.log("Delete response", response)
+                setPosts((prevPosts) => prevPosts.filter((post) => post.id_post !== id));
+            }catch(err){
+                console.log(err)
+                setError('Erro ao excluir post')
+        }
+    }
+};
 
     if (loading) return (<>
     <LoadingText>Loading posts...</LoadingText>

@@ -41,8 +41,20 @@ export default function Home() {
     if (!isLoggedIn) {
       router.push('/login');
     }
+    
+    const handleBeforeUnload = () => {
+      localStorage.clear();
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
   }
 , [])
+
+
 
   return (
     <>

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { useRouter } from 'next/navigation';
 import Books from "../../app/public/images/Books.png";
 import Image from "next/image";
+import { getTeacherById } from "@/apiCalls/getTeacherById";
 
 const Container = styled.div`
     display: flex;
@@ -106,6 +107,9 @@ const Login = () => {
                 localStorage.setItem('isLoggedIn', 'true')
                 localStorage.setItem('userId', data.id_user)
                 localStorage.setItem('username', data.username)
+                
+                await getTeacherById()
+
                 router.push('/')
             }catch(error){
                 if (error instanceof Error){

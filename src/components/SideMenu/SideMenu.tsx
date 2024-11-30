@@ -1,5 +1,4 @@
 'use client'
-import { getTeacherById } from "@/apiCalls/getTeacherById";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
@@ -65,16 +64,12 @@ const SideMenu: React.FC<{onSearch: (keyword: string) => void}> = ({onSearch})=>
         onSearch(keyword);
     }
     
-    useEffect(()=>{
-        getTeacherById()
-          .then((isTeacher) => {
-            setButtonVisible(isTeacher);
-          })
-          .catch((error) => {
-            console.error(error);
-          })
-    },[])
-    
+
+    useEffect(() => {
+        if(localStorage.getItem('isTeacher') === 'true'){
+            setButtonVisible(true)
+        }},[])
+
     return(
         <SideMenuContainer>
             <Text>Digite o trecho desejado</Text>
