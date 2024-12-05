@@ -32,18 +32,30 @@ const InputTitle = styled.input`
     padding: 10px;
     box-sizing: border-box;
     `;
-const InputContent = styled.textarea`
-    border: 3px solid #000;
+const InputWrapper = styled.div`
     width: 80%;
     height: 100px;
     border-radius: 30px;
+    overflow: hidden; 
+    background-color: #235789;
+    border: 3px solid #000;
+    display: flex; 
+`;
+
+const InputContent = styled.textarea`
+    flex: 1; 
+    border: none;
     resize: none;
-    background-color: transparent;
     padding: 10px;
     box-sizing: border-box;
-    background-color: #235789;
+    background-color: transparent;
     color: #fff;
-    `;
+
+    overflow: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: thin;
+    scrollbar-color: #000000 transparent;
+`;
 
 const Label = styled.label`
     color: #fff;`;  
@@ -205,12 +217,14 @@ const AddPostPage= ()=> {
                 value={formik.values.post_title}
             />
             <Label htmlFor="post_text">Conteúdo do post</Label>
+            <InputWrapper>
             <InputContent
                 id="post_text"
                 name="post_text"
                 onChange={formik.handleChange}
                 value={formik.values.post_text}
             />
+            </InputWrapper>
             <ButtonsContainer>
             <ReturnLink href={"/"}>VOLTAR</ReturnLink>
             <SubmitButton type="submit">CRIAR POST</SubmitButton>

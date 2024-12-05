@@ -105,12 +105,19 @@ const PostPage: React.FC = () => {
 
   if (!post) return <p>Post not found</p>;
 
+  const formattedPostText = post.post_text.split('\n').map((line, index) =>(
+    <span key={index}>
+      {line}
+      <br />
+    </span>
+  ))
+
   return (
     <GeneralContainer>
         <ReturnLink href={"/"}>Voltar</ReturnLink>
     <PostContainer>
       <PostTitle>{post.post_title}</PostTitle>
-      <PostContent>{post.post_text}</PostContent>
+      <PostContent>{formattedPostText}</PostContent>
       <PostDetails>
         <p>Publicado por: {post.teacher_name}</p>
         <small>Data de publicação: {formatDate(post.post_date)}</small>
