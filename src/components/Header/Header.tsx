@@ -29,6 +29,22 @@ const Name = styled.h2`
     font-weight: bold;
     margin-left: 10px;
     `;
+const LogoImage = styled(Image)`
+width: 550px;
+height: auto;
+
+@media (max-width: 1366px) {
+  width: 400px;
+}
+
+@media (max-width: 768px) {
+  width: 300px; 
+}
+
+@media (max-width: 480px) {
+  width: 200px; 
+}
+`;
 
 const Header = () => {
     const [username, setUsername] = useState<string>('')
@@ -43,7 +59,7 @@ const Header = () => {
     return (
         <Container>
         <Title>Bem vindo(a)</Title>
-        <Image src = {Logo} alt = "Logo" width = {550} height = {0} />
+        <LogoImage src = {Logo} alt="Logo" />
         <ContainerUser>
         <FaUserCircle size = {50} color="#e2e0de"/>
         {username && <Name>{username}</Name>} 
