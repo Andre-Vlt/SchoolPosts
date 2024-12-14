@@ -14,7 +14,17 @@ const ButtonContainer = styled.div`
 
 const ButtonText = styled.h1`
     color: #fff;
-    margin-right: 8px;`;
+    margin-right: 8px;
+    
+    @media (max-width: 320px) {
+    font-size: 12px; 
+    }
+
+    @media (min-width: 321px) and (max-width: 480px){
+        font-size: 15px;
+    }
+
+    `;
 
 const SideMenuContainer = styled.div`
     display: flex;
@@ -32,26 +42,105 @@ const Input = styled.input`
     height: 40px;
     padding: 10px;
     border-radius: 5px;
-    border: solid 1px #000;`;
+    border: solid 1px #000;
+    
+    @media (max-width: 320px) {
+        height: 30px;
+        width: 93%;
+    }
+
+    @media (min-width: 321px) and (max-width: 480px){
+        height: 35px;
+        width: 93%;
+    }
+
+    @media (min-width: 481px) and (max-width: 768px){
+        height: 40px;
+        width: 93%;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px){
+        height: 45px;
+        width: 93%;
+    }
+
+    `;
 
 const Button = styled.button`
     margin-top: 10px;
-    width: 60%;
+    width: 80%;
     height: 40px;
     background-color: #235789;
-    
+    border-radius: 5px;
     &:hover{
         background-color: #1a4567;
-        }`;
+        }
+    
+    @media (max-width: 320px) {
+        height: 55px;
+        width: 92%;
+    }
+
+    @media (min-width: 321px) and (max-width: 480px){
+        height: 50px;
+        width: 92%;
+    }
+
+    @media (min-width: 481px) and (max-width: 768px){
+        height: 45px;
+        width: 92%;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px){
+        height: 40px;
+        width: 92%;
+    }
+
+    @media (min-width: 1025px) and (max-width: 1280px){
+        height: 40px;
+        width: 80%;
+    }
+
+        `;
 
 const Text = styled.h2`
     margin-top: 10px;
     color: #fff;
     font-weight: bold;
-    font-size: 20px;`;
+    font-size: 20px;
+    
+    @media (max-width: 320px) {
+    font-size: 12px; 
+    align-self: center;
+    margin-left: 10px;
+    }
+
+    @media (min-width: 321px) and (max-width: 480px){
+        font-size: 16px;
+        align-self: center;
+        margin-left: 10px;
+    }
+
+    @media (min-width: 481px) and (max-width: 768px){
+        font-size: 20px;
+        align-self: center;
+        margin-left: 28px;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px){
+        font-size: 22px;
+        align-self: center;
+    }
+    `;
 
 const BookImage = styled(Image)`
-    margin-top: 150px;`;
+    margin-top: 150px;
+    width: 180px;
+    @media (max-width: 320px) {
+    width: 100px;
+
+    }
+    `;
 
 //FIM DAS ESTILIZAÇÕES
 
@@ -98,7 +187,9 @@ const SideMenu: React.FC<{onSearch: (keyword: string) => void}> = ({onSearch})=>
             </Link>
             </Button>
             }
-            <BookImage src={Books} alt="Books" width={200} height={200}/>
+            <BookImage src={Books} alt="Books" 
+            // width={200} height={200}
+            />
         </SideMenuContainer>
     )
 }

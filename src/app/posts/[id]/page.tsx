@@ -23,6 +23,17 @@ const PostContainer = styled.div`
 const PostTitle = styled.h1`
   font-size: 48px;
   color: #333;
+  font-weight: bold;
+
+  @media (max-width: 320px) {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  @media (min-width: 321px) and (max-width: 480px){
+    font-size: 28px;
+    font-weight: bold;
+  }
 `;
 
 const PostContent = styled.p`
@@ -63,7 +74,19 @@ const LoadingText = styled.h1`
         background-color: #235789;
         color: #fff;
         transition: 0.7s ease;
-    }`;
+    }
+    @media (max-width: 320px) {
+        font-size: 10px;
+        height: 30px;
+        width: 50px;
+    }
+    @media (min-width: 321px) and (max-width: 480px){
+        font-size: 15px;
+        height: 40px;
+        width: 70px;
+    }
+
+    `;
 
 interface Post {
   post_title: string;

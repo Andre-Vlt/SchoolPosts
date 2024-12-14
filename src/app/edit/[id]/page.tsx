@@ -13,7 +13,16 @@ import styled from "styled-components";
 const Title = styled.h1`
     color: #fff;
     font-size: 40px;
-    font-weight: bold;`;
+    font-weight: bold;
+    @media (max-width: 320px){
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    @media (min-width: 321px) and (max-width: 480px){
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    `;
 
 const FormContainer = styled.div`
     display: flex;
@@ -76,6 +85,20 @@ const Form = styled.form`
     border-bottom-left-radius: 100px;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
+    @media (max-width: 320px){
+        width: 90%;
+        height: 80%;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+    @media (min-width: 321px) and (max-width: 480px){
+        width: 80%;
+        height: 80%;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
     `;
 const ReturnLink = styled(Link)`
     border: none;
@@ -90,6 +113,9 @@ const ReturnLink = styled(Link)`
     &:hover {
         background-color: #f5b351;
         transition: 0.7s ease;
+    }
+    @media (max-width: 320px){
+        width: 40%;
     }
     `;
 
@@ -115,12 +141,19 @@ const SubmitButton = styled.button`
         background-color: #77ff77;
         transition: 0.7s ease;
     }
+    @media (max-width: 320px){
+        width: 40%;
+    }
     `;
 
 const ButtonsContainer = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-around;
+    margin-top: 10px;
+    @media (max-width: 320px){
+        margin-top: 25px;
+    }
     `;
 
 interface Post {
@@ -300,7 +333,7 @@ if (loading || !post) {
             </InputWrapper>
             <ButtonsContainer>
             <ReturnLink href={"/"}>VOLTAR</ReturnLink>
-            <SubmitButton type="submit">ATUALIZAR POST</SubmitButton>
+            <SubmitButton type="submit">ATUALIZAR</SubmitButton>
             </ButtonsContainer>
         </Form>
     </FormContainer>

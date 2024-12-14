@@ -43,11 +43,32 @@ const PostDetails = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 100%;`;
+    width: 100%;
+
+    @media (max-width: 320px) {
+        font-size: 10px;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    @media (min-width: 321px) and (max-width: 480px){
+        font-size: 12px;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    `;
 
 const PostTitle = styled.h1`
     font-size: 25px;
     font-weight: bold;
+
+    @media (max-width: 320px) {
+        font-size: 11px;
+    }
+
+    @media (min-width: 321px) and (max-width: 480px){
+        font-size: 15px;
+    }
     `;
     
 export const LoadingText = styled.h1`
@@ -77,19 +98,29 @@ const EditIcon = styled(MdModeEdit)`
     color: #235789;
     margin-bottom: 15px;
     cursor: pointer;
+    font-size: 28px;
 
     &:hover{
         color: #1a4567;
+    }
+
+    @media (max-width: 320px) {
+        font-size: 18px;
     }
     `;
 
 const DeleteIcon = styled(MdDelete)`
     color: #a50505;
     cursor: pointer;
-    
+    font-size: 28px;
     &:hover{
         color: #7a0404;
-        }`;
+        }
+    
+    @media (max-width: 320px) {
+        font-size: 18px;
+    }
+        `;
 
 interface PostListProps {
     keyWord: string;
@@ -169,14 +200,11 @@ const PostsList: React.FC<PostListProps> = ({ keyWord }) => {
                     </Linking>
                         <EditDeleteContainer>
                         {editVisible && (<Link href={`/edit/${post.id_post}`} passHref>
-                          <EditIcon size={28} 
-                          //Configurar para ir a pag de edição -> onClick={}
-                          />
+                          <EditIcon />
                         </Link>
                         )}
                         {editVisible && 
-                        <DeleteIcon size={28} onClick={() => handleDelete(post.id_post)}/>
-                        //Configurar para aparecer um modal de confirmação de exclusão -> onClick={}
+                        <DeleteIcon onClick={() => handleDelete(post.id_post)}/>
                         }
                         
 
