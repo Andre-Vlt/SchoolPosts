@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Cabeçalho](/src/app/public/images/Logo.png)  
 
-## Getting Started
+# Descrição
 
-First, run the development server:
+O projeto é uma interface gráfica que consome a API de posts desenvolvida anteriormente e que pode ser encontrada em https://github.com/Andre-Vlt/School.
+A interface permite a criação, edição e exclusão de posts para usuários cadastrados como professores, além de permitir também a leitura tanto para professores quanto para alunos.
+# Instalação - Dev Environment
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Para executar em ambiente de desenvolvimento, os seguintes passos devem ser seguidos:  
+1. **Obter repositório do github:**  
+``git clone https://github.com/Andre-Vlt/SchoolPosts.git``  
+2. **Instalar dependências:**  
+``npm install``    
+5. **Executar projeto**  
+``npm run dev``
+6. **Acessar projeto:**  
+Para acessar e testar o app, basta utilizar o navegador para acessar a ***localhost:400***, que é onde o projeto roda em ambiente de desenvolvimento.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**A API ESTÁ HOSPEDADA NO RENDER FREE, ENTÃO PODEM OCORRER ATRASOS AO REALIZAR AS REQUISIÇÕES**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Testar sem instalar
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Existe um deploy do projeto no render. O link de acesso para o mesmo é:  
+https://postsread.onrender.com/
+Para efetuar testes, existem dois usuários cadastrados como padrão.
 
-## Learn More
+Para acessar como professor utilize as credenciais:
+- Login: Nina
+- Senha: 123456
 
-To learn more about Next.js, take a look at the following resources:
+Para acessar como aluno utilize as credenciais:
+- Login: Paulo
+- Senha: 123456
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**A API ESTÁ HOSPEDADA NO RENDER FREE, ENTÃO PODEM OCORRER ATRASOS AO REALIZAR AS REQUISIÇÕES.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+# Demonstração de uso  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Foi criado um arquivo com detalhes sobre o projeto em geral, inclusive a demonstração de uso do mesmo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para fazer download do arquivo que contêm a demonstração de uso da aplicação, acesse:
+
+ https://github.com/user-attachments/files/18170602/Documentacao.Tech03.pdf
+
+# Tecnologias utilizadas
+
+- <img src="https://simpleicons.org/icons/nextdotjs.svg" alt="Vite" width="30" height="30"/> Next.JS
+- <img src="https://simpleicons.org/icons/typescript.svg" alt="TypeScript" width="30" height="30"/> TypeScript
+- <img src="https://simpleicons.org/icons/react.svg" alt="React" width="30" height="30"/> React
+- <img src= "https://simpleicons.org/icons/styledcomponents.svg" alt="Node JS" width = "30" height="30"> Styled-Components 
+- <img src= "https://simpleicons.org/icons/render.svg" alt="Node JS" width = "30" height="30"> Render
+
