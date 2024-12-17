@@ -9,7 +9,7 @@ const LayoutContainer = styled.div`
   min-height: 100vh;
 `;
 
-const MainContent = styled.main`
+const MainContent = styled.main<{bg :string}>`
   flex-grow: 1;
   background-image: url(${(props) => props.bg});
   background-size: cover;
